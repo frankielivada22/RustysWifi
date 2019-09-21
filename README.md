@@ -17,8 +17,8 @@ aireplay-ng
 airmon-ng
 
 How to run:
-chmod +x install.sh
-./install
-chmod +x start.sh
-./start.sh
+chmod +x install.sh;  
+./install; 
+chmod +x start.sh; 
+./start.sh;
 

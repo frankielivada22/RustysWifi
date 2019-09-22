@@ -1,5 +1,6 @@
 # RustysWifi
 Wifi Tool made in shell
+(This tool is still WIP)
 
 Tools:
 1) Wifi Spam

@@ -7,7 +7,8 @@ Tools:
 3) Deauth 1
 4) Deauth Area
 5) Scan Networks
-6) Scan Lan
+6) Scan Channel
+7) Scan Lan
 more to be added
 
 Tools needed to run:

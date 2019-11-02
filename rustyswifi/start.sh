@@ -86,7 +86,8 @@ ifconfig $interface down
 ifconfig $interface up
 macchanger -r $interface
 airmon-ng start wlan0
-mdk3 $interface b -f ./SSIDS.txt -a -s 1000
+mdk3 $interfacemon b -f ./SSIDS.txt -a -s 1000
+airmon-ng stop $interfacemon
 fi
 if [[ $wifiwl == "2" ]]; then
 echo -e $lred"Might not work!!!"
@@ -107,7 +108,8 @@ ifconfig $interface down
 ifconfig $interface up
 macchanger -r $interface
 airmon-ng start wlan0
-mdk3 $interface b -f ./$OWN -a -s $(wc -l $OWN | cut -f1 -d ' ')
+mdk3 $interfacemon b -f ./$OWN -a -s $(wc -l $OWN | cut -f1 -d ' ')
+airmon-ng stop $interfacemon
 fi
 if [[ $wifiwl == "3" ]]; then
 
@@ -135,6 +137,7 @@ ifconfig $interface up
 macchanger -r $interface
 airmon-ng start wlan0
 mdk3 $interface b -f ./RANDOM_wordlist.txt -a -s $N
+airmon-ng stop $interfacemon
 fi
 
 ####

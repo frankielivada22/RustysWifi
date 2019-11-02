@@ -80,6 +80,8 @@ echo "1"
 sleep 1
 echo "running..."
 
+mon="mon"
+interfacemon="$interface$mon"
 ifconfig $interface down
 ifconfig $interface up
 macchanger -r $interface
@@ -99,6 +101,8 @@ read -p "-->>" interface
 clear
 echo "starting..."
 echo ""
+mon="mon"
+interfacemon="$interface$mon"
 ifconfig $interface down
 ifconfig $interface up
 macchanger -r $interface
@@ -124,6 +128,8 @@ echo -e "Starting process..."
 echo " If you want to stop it, press CTRL+C."
 echo " "
 sleep 1
+mon="mon"
+interfacemon="$interface$mon"
 ifconfig $interface down
 ifconfig $interface up
 macchanger -r $interface

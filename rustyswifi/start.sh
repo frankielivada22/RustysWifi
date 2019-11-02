@@ -81,9 +81,9 @@ sleep 1
 echo "running..."
 
 ifconfig $interface down
-macchanger -r $interface
-iwconfig $interface mode monitor
 ifconfig $interface up
+macchanger -r $interface
+airmon-ng start wlan0
 mdk3 $interface b -f ./SSIDS.txt -a -s 1000
 fi
 if [[ $wifiwl == "2" ]]; then
@@ -100,9 +100,9 @@ clear
 echo "starting..."
 echo ""
 ifconfig $interface down
-macchanger -r $interface
-iwconfig $interface mode monitor
 ifconfig $interface up
+macchanger -r $interface
+airmon-ng start wlan0
 mdk3 $interface b -f ./$OWN -a -s $(wc -l $OWN | cut -f1 -d ' ')
 fi
 if [[ $wifiwl == "3" ]]; then
@@ -125,9 +125,9 @@ echo " If you want to stop it, press CTRL+C."
 echo " "
 sleep 1
 ifconfig $interface down
-macchanger -r $interface
-iwconfig $interface mode monitor
 ifconfig $interface up
+macchanger -r $interface
+airmon-ng start wlan0
 mdk3 $interface b -f ./RANDOM_wordlist.txt -a -s $N
 fi
 
